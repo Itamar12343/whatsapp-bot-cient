@@ -29,6 +29,9 @@ function success_login() {
     success_popup();
     setTimeout(() => {
         start_success_animation();
+        setTimeout(() => {
+            close_success_popup();
+        }, 2000);
     }, 500);
 }
 
@@ -46,6 +49,10 @@ function success_popup() {
         login_check_box.style.transform = "translate(-50%,-50%) scale(1)";
     }, 200);
 }
-setTimeout(() => {
-    success_login();
-}, 1000);
+
+function close_success_popup() {
+    login_check_box.style.transform = "translate(-50%,-50%) scale(1.2)";
+    setTimeout(() => {
+        login_check_box.style.transform = "translate(-50%,-50%) scale(0)";
+    }, 200);
+}
