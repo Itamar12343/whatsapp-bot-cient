@@ -18,10 +18,11 @@ socket.on("qr_code", qr => {
 socket.on("loged in", () => {
     success_login();
 });
+//success_login();
 
 
 function el(el) {
-    return document.querySelector(el)
+    return document.querySelector(el);
 }
 
 function success_login() {
