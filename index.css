@@ -102,7 +102,6 @@ body {
     width: 80%;
     transition: 0.3s;
     opacity: 0;
-    background-color: #aaa;
 }
 
 .text-input {
