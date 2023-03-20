@@ -102,6 +102,7 @@ body {
     width: 80%;
     transition: 0.3s;
     opacity: 0;
+    background-color: #aaa;
 }
 
 .text-input {
@@ -142,4 +143,10 @@ body {
     border: none;
     border-radius: 10px;
     cursor: pointer;
+}
+
+@media screen and (min-width: 884px) {
+    .after-login {
+        width: 600px;
+    }
 }
