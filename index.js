@@ -16,11 +16,15 @@ socket.on("qr_code", qr => {
     qr_generateor.makeCode(qr);
 });
 
+socket.on("client_disconnected", () => {
+    window.location.reload();
+})
+
 socket.on("loged in", () => {
     success_login();
 });
 setTimeout(() => {
-    success_login();
+    //success_login();
 }, 1000);
 
 
@@ -66,4 +70,5 @@ function close_success_popup() {
 
 function show_after_login() {
     after_login.style.opacity = "1";
+    after_login.style.visibility = "visible";
 }
