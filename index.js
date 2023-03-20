@@ -5,6 +5,7 @@ const before_login = el(".before-login");
 const spiner = el(".spiner");
 const check_block = el(".check-block");
 const login_check_box = el(".login-check-box");
+const after_login = el(".after-login");
 
 
 
@@ -18,7 +19,9 @@ socket.on("qr_code", qr => {
 socket.on("loged in", () => {
     success_login();
 });
-//success_login();
+setTimeout(() => {
+    success_login();
+}, 1000);
 
 
 function el(el) {
@@ -32,6 +35,9 @@ function success_login() {
         start_success_animation();
         setTimeout(() => {
             close_success_popup();
+            setTimeout(() => {
+                show_after_login();
+            }, 500);
         }, 2000);
     }, 500);
 }
@@ -56,4 +62,8 @@ function close_success_popup() {
     setTimeout(() => {
         login_check_box.style.transform = "translate(-50%,-50%) scale(0)";
     }, 200);
+}
+
+function show_after_login() {
+    after_login.style.opacity = "1";
 }
