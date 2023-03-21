@@ -6,8 +6,7 @@ const spiner = el(".spiner");
 const check_block = el(".check-block");
 const login_check_box = el(".login-check-box");
 const after_login = el(".after-login");
-
-
+let i = 0;
 
 socket.emit("get_qr_code");
 
