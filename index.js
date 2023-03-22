@@ -6,6 +6,30 @@ const spiner = el(".spiner");
 const check_block = el(".check-block");
 const login_check_box = el(".login-check-box");
 const after_login = el(".after-login");
+const text_input = el(".text-input");
+const number_input = el(".number-input");
+const time_input = el(".time-input");
+const send_btn = el(".send-btn");
+
+
+send_btn.onclick = () => {
+    if (text_input.value.length > 0 && number_input.value.length > 0 && time_input.value.length > 0) {
+        let msg = {
+            text: text_input.value,
+            time: time_input.value,
+            number: number_input.value
+        }
+        socket.emit("schedule_msg", msg);
+    }
+    send_btn.style.transform = "scale(1.5)";
+    setTimeout(() => {
+        send_btn.style.transform = "scale(1)";
+    }, 200);
+}
+
+window.onbeforeunload = () => {
+    socket.emit("the client disconnected");
+}
 
 socket.emit("get_qr_code");
 
@@ -21,6 +45,7 @@ socket.on("client_disconnected", () => {
 socket.on("loged in", () => {
     success_login();
 });
+
 setTimeout(() => {
     //success_login();
 }, 1000);
