@@ -47,7 +47,7 @@ socket.on("loged in", () => {
 });
 
 setTimeout(() => {
-    //success_login();
+    success_login();
 }, 1000);
 
 

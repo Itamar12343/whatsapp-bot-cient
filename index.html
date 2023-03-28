@@ -32,7 +32,15 @@
     <div class="after-login">
         <textarea type="text" cols="30" rows="10" class="text-input" placeholder="כתוב את ההודעה כאן"></textarea>
         <input type="tel" class="number-input" placeholder="מספר טלפון של איש הקשר">
-        <input type="text" class="time-input" value="1 שעות" placeholder="עוד כמה שעות ההודעה תישלח">
+
+        <div class="time-box">
+            <select title="time" name="time" class="time-select">
+            <option value="">שעות</option>
+            <option value="">דקות</option>
+        </select>
+            <input type="text" class="time-input" value="1" placeholder="עוד כמה זמן ההודעה תישלח">
+        </div>
+
         <button class="send-btn">שלח</button>
     </div>
 </body>
