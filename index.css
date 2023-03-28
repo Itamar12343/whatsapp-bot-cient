@@ -100,6 +100,7 @@ body {
 .text-input {
     resize: none;
     height: 40px;
+    max-height: 120px;
     border-radius: 10px;
     text-align: right;
     font-size: 30px;
@@ -121,6 +122,10 @@ body {
     padding: 10px;
 }
 
+body {
+    overflow: hidden;
+}
+
 .number-input {
     font-size: 30px;
     text-align: center;
@@ -139,7 +144,7 @@ body {
     background-color: rgb(255, 255, 255, 0.5);
     border: 2px solid #aaa;
     border-radius: 10px;
-    cursor: pointer;
+    cursor: not-allowed;
     transition: 0.3s;
 }
 
@@ -189,4 +194,33 @@ body {
     justify-content: center;
     align-items: center;
     width: 100%;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    border-radius: 10px;
+}
+
+
+/* Track */
+
+ ::-webkit-scrollbar-track {
+    background: #fff;
+    border-radius: 10px;
+}
+
+
+/* Handle */
+
+ ::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+
+/* Handle on hover */
+
+ ::-webkit-scrollbar-thumb:hover {
+    background: #555;
 }

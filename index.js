@@ -10,6 +10,17 @@ const text_input = el(".text-input");
 const number_input = el(".number-input");
 const time_input = el(".time-input");
 const send_btn = el(".send-btn");
+const time_select = el(".time-select");
+
+
+text_input.addEventListener("keyup", (e) => {
+    text_input.style.height = "40px";
+    let scrollHeight = e.target.scrollHeight;
+    if (scrollHeight === 60) {
+        scrollHeight = 40;
+    }
+    text_input.style.height = `${scrollHeight}px`;
+});
 
 
 send_btn.onclick = () => {
@@ -17,17 +28,12 @@ send_btn.onclick = () => {
         let msg = {
             text: text_input.value,
             time: time_input.value,
-            number: number_input.value
+            number: number_input.value,
+            timeType: time_select.value
         }
         socket.emit("schedule_msg", msg);
+        btn_animation();
     }
-    send_btn.style.transform = "scale(1.5)";
-    setTimeout(() => {
-        send_btn.style.transform = "scale(1) rotate(360deg)";
-        setTimeout(() => {
-            send_btn.style.transform = "scale(1) rotate(0deg)";
-        }, 200);
-    }, 200);
 }
 
 window.onbeforeunload = () => {
@@ -84,6 +90,16 @@ function success_popup() {
     login_check_box.style.transform = "translate(-50%,-50%) scale(1.2)";
     setTimeout(() => {
         login_check_box.style.transform = "translate(-50%,-50%) scale(1)";
+    }, 200);
+}
+
+function btn_animation() {
+    send_btn.style.transform = "scale(1.5)";
+    setTimeout(() => {
+        send_btn.style.transform = "scale(1) rotate(360deg)";
+        setTimeout(() => {
+            send_btn.style.transform = "scale(1) rotate(0deg)";
+        }, 200);
     }, 200);
 }
 
