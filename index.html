@@ -34,11 +34,14 @@
         <input type="tel" class="number-input" placeholder="מספר טלפון של איש הקשר">
 
         <div class="time-box">
-            <select title="time" name="time" class="time-select">
+            <div class="select-container">
+                <select title="time" name="time" class="time-select">
             <option value="">שעות</option>
             <option value="">דקות</option>
         </select>
-            <input type="text" class="time-input" value="1" placeholder="עוד כמה זמן ההודעה תישלח">
+                <div class="select-icon"><i class="bi bi-caret-down-fill"></i></div>
+            </div>
+            <input type="number" class="time-input" value="1" placeholder="עוד כמה זמן ההודעה תישלח">
         </div>
 
         <button class="send-btn">שלח</button>

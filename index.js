@@ -23,7 +23,10 @@ send_btn.onclick = () => {
     }
     send_btn.style.transform = "scale(1.5)";
     setTimeout(() => {
-        send_btn.style.transform = "scale(1)";
+        send_btn.style.transform = "scale(1) rotate(360deg)";
+        setTimeout(() => {
+            send_btn.style.transform = "scale(1) rotate(0deg)";
+        }, 200);
     }, 200);
 }
 
@@ -88,6 +91,9 @@ function close_success_popup() {
     login_check_box.style.transform = "translate(-50%,-50%) scale(1.2)";
     setTimeout(() => {
         login_check_box.style.transform = "translate(-50%,-50%) scale(0)";
+        setTimeout(() => {
+            before_login.remove();
+        }, 200);
     }, 200);
 }
 
