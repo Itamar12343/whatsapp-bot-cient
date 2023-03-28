@@ -197,7 +197,7 @@ body {
 }
 
 ::-webkit-scrollbar {
-    width: 10px;
+    width: 6px;
     border-radius: 10px;
 }
 
@@ -213,9 +213,8 @@ body {
 /* Handle */
 
  ::-webkit-scrollbar-thumb {
-    background: #888;
+    background: #c2c2c2;
     border-radius: 10px;
-    transition: 0.3s;
 }
 
 
