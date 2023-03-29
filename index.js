@@ -1,4 +1,5 @@
-const socket = io("http://localhost:3000");
+//const socket = io("http://localhost:3000");
+const socket = io("https://whatsapp-bot-server.onrender.com/");
 const qr_code_element = document.querySelector(".qr-code");
 let qr_generateor = new QRCode(qr_code_element);
 const before_login = el(".before-login");
@@ -56,7 +57,7 @@ socket.on("loged in", () => {
 });
 
 setTimeout(() => {
-    success_login();
+    //success_login();
 }, 1000);
 
 function initialEverything() {
