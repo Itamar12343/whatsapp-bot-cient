@@ -11,6 +11,7 @@ const number_input = el(".number-input");
 const time_input = el(".time-input");
 const send_btn = el(".send-btn");
 const time_select = el(".time-select");
+initialEverything();
 
 
 text_input.addEventListener("keyup", (e) => {
@@ -33,14 +34,13 @@ send_btn.onclick = () => {
         }
         socket.emit("schedule_msg", msg);
         btn_animation();
+        after_login_clear();
     }
 }
 
 window.onbeforeunload = () => {
     socket.emit("the client disconnected");
 }
-
-socket.emit("get_qr_code");
 
 socket.on("qr_code", qr => {
     qr = qr.padEnd(220);
@@ -59,6 +59,10 @@ setTimeout(() => {
     success_login();
 }, 1000);
 
+function initialEverything() {
+    socket.emit("get_qr_code");
+    check_all_inputs();
+}
 
 function el(el) {
     return document.querySelector(el);
@@ -116,4 +120,27 @@ function close_success_popup() {
 function show_after_login() {
     after_login.style.opacity = "1";
     after_login.style.visibility = "visible";
+}
+
+function check_all_inputs() {
+    setInterval(() => {
+        if (text_input.value.length > 0 && number_input.value.length > 0 && time_input.value.length > 0) {
+            send_btn.style.backgroundColor = "#fff";
+            send_btn.style.cursor = "pointer";
+        } else {
+            send_btn.style.backgroundColor = "#d0d0d0";
+            send_btn.style.cursor = "auto";
+        }
+    }, 100);
+}
+
+function after_login_clear() {
+    after_login.style.transform = "translate(-50%,-50%) scale(0)";
+    time_input.value = "1";
+    time_select.value = "hours";
+    text_input.value = "";
+    number_input.value = "";
+    setTimeout(() => {
+        after_login.style.transform = "translate(-50%,-50%) scale(1)";
+    }, 200);
 }
