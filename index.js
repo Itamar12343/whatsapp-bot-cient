@@ -13,6 +13,7 @@ const time_input = el(".time-input");
 const send_btn = el(".send-btn");
 const time_select = el(".time-select");
 initialEverything();
+//
 
 
 text_input.addEventListener("keyup", (e) => {
